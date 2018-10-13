@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Transformalize.Provider.Sqlite</id>
-    <version>0.3.7-beta</version>
+    <version>0.3.8-beta</version>
     <title>Transformalize Transform using Sqlite</title>
     <authors>Dale Newman</authors>
     <owners>Dale Newman</owners>
@@ -14,13 +14,13 @@
     <copyright>Copyright 2018</copyright>
     <tags>etl</tags>
     <dependencies>
-      <group targetFramework="net452">
-        <dependency id="Transformalize.Provider.Ado" version="0.3.7-beta" />
-        <dependency id="System.Data.SQLite.Core" version="1.0.108.0" />
+      <group targetFramework="net462">
+        <dependency id="Transformalize.Provider.Ado" version="0.3.10-beta" />
+        <dependency id="System.Data.SQLite.Core" version="1.0.109.2" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\src\Transformalize.Provider.Sqlite\bin\Release\Transformalize.Provider.Sqlite.dll" target="lib\net452\Transformalize.Provider.Sqlite.dll" />
+    <file src="..\src\Transformalize.Provider.Sqlite\bin\Release\Transformalize.Provider.Sqlite.dll" target="lib\net462\Transformalize.Provider.Sqlite.dll" />
   </files>
 </package>
