@@ -1,8 +1,6 @@
 ### Overview
 
-This adds a `sqlite` provider to Transformalize using [System.Data.SQLite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core).  It is a plug-in compatible with Transformalize 0.3.5-beta.
-
-Build the Autofac project and put it's output into Transformalize's *plugins* folder. Copy the appropriate *SQLite.Interop.dll* from the x86 or x64 folder into the output folder.
+This is a `sqlite` provider to Transformalize using [System.Data.SQLite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core).  It ships with Transformalzie CLI.
 
 ### Write Usage
 

@@ -16,9 +16,9 @@
 // limitations under the License.
 #endregion
 
-using System.Linq;
 using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 using Transformalize.Configuration;
 using Transformalize.Containers.Autofac;
 using Transformalize.Contracts;
@@ -28,12 +28,12 @@ using Transformalize.Providers.Sqlite.Autofac;
 
 namespace IntegrationTests {
 
-    [TestClass]
-    public class Test {
+   [TestClass]
+   public class Test {
 
-        [TestMethod]
-        public void Write() {
-            const string xml = @"<add name='Bogus' mode='init'>
+      [TestMethod]
+      public void Write() {
+         const string xml = @"<add name='Bogus' mode='init'>
   <parameters>
     <add name='Size' type='int' value='1000' />
   </parameters>
@@ -53,22 +53,21 @@ namespace IntegrationTests {
     </add>
   </entities>
 </add>";
-            using (var outer = new ConfigurationContainer().CreateScope(xml)) {
-                using (var inner = new TestContainer(new BogusModule(), new SqliteModule()).CreateScope(outer, new ConsoleLogger(LogLevel.Debug))) {
+         using (var outer = new ConfigurationContainer().CreateScope(xml)) {
+            var process = outer.Resolve<Process>();
+            using (var inner = new TestContainer(new BogusModule(), new SqliteModule()).CreateScope(process, new ConsoleLogger(LogLevel.Debug))) {
 
-                    var process = inner.Resolve<Process>();
+               var controller = inner.Resolve<IProcessController>();
+               controller.Execute();
 
-                    var controller = inner.Resolve<IProcessController>();
-                    controller.Execute();
-
-                    Assert.AreEqual(process.Entities.First().Inserts, (uint)1000);
-                }
+               Assert.AreEqual(process.Entities.First().Inserts, (uint)1000);
             }
-        }
+         }
+      }
 
-        [TestMethod]
-        public void Read() {
-            const string xml = @"<add name='Bogus'>
+      [TestMethod]
+      public void Read() {
+         const string xml = @"<add name='Bogus'>
   <connections>
     <add name='input' provider='sqlite' file='c:\temp\junk.sqlite' />
     <add name='output' provider='internal' />
@@ -88,19 +87,18 @@ namespace IntegrationTests {
     </add>
   </entities>
 </add>";
-            using (var outer = new ConfigurationContainer().CreateScope(xml)) {
-                using (var inner = new TestContainer(new SqliteModule()).CreateScope(outer, new ConsoleLogger(LogLevel.Debug))) {
+         using (var outer = new ConfigurationContainer().CreateScope(xml)) {
+            var process = outer.Resolve<Process>();
+            using (var inner = new TestContainer(new SqliteModule()).CreateScope(process, new ConsoleLogger(LogLevel.Debug))) {
 
-                    var process = inner.Resolve<Process>();
+               var controller = inner.Resolve<IProcessController>();
+               controller.Execute();
+               var rows = process.Entities.First().Rows;
 
-                    var controller = inner.Resolve<IProcessController>();
-                    controller.Execute();
-                    var rows = process.Entities.First().Rows;
+               Assert.AreEqual(10, rows.Count);
 
-                    Assert.AreEqual(10, rows.Count);
-
-                }
             }
-        }
-    }
+         }
+      }
+   }
 }
