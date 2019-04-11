@@ -52,6 +52,8 @@ namespace IntegrationTests {
       //[Ignore]
       public void SqlLite_Integration() {
 
+         var logger = new ConsoleLogger(LogLevel.Debug);
+
          // CORRECT DATA AND INITIAL LOAD
          using (var cn = new SqlServerConnectionFactory(InputConnection).GetConnection()) {
             cn.Open();
@@ -61,9 +63,9 @@ namespace IntegrationTests {
                 "));
          }
 
-         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile + "?Mode=init")) {
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile + "?Mode=init", logger)) {
             var process = outer.Resolve<Process>();
-            using (var inner = new TestContainer(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, new ConsoleLogger(LogLevel.Debug))) {
+            using (var inner = new Container(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, logger)) {
                var controller = inner.Resolve<IProcessController>();
                controller.Execute();
             }
@@ -76,9 +78,9 @@ namespace IntegrationTests {
          }
 
          // FIRST DELTA, NO CHANGES
-         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile)) {
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile, logger)) {
             var process = outer.Resolve<Process>();
-            using (var inner = new TestContainer(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, new ConsoleLogger(LogLevel.Debug))) {
+            using (var inner = new Container(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, logger)) {
                var controller = inner.Resolve<IProcessController>();
                controller.Execute();
             }
@@ -98,9 +100,9 @@ namespace IntegrationTests {
             Assert.AreEqual(1, cn.Execute(sql));
          }
 
-         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile)) {
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile, logger)) {
             var process = outer.Resolve<Process>();
-            using (var inner = new TestContainer(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, new ConsoleLogger(LogLevel.Debug))) {
+            using (var inner = new Container(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, logger)) {
                var controller = inner.Resolve<IProcessController>();
                controller.Execute();
             }
@@ -120,9 +122,9 @@ namespace IntegrationTests {
             Assert.AreEqual(1, cn.Execute("UPDATE Orders SET CustomerID = 'VICTE', Freight = 20.11 WHERE OrderId = 10254;"));
          }
 
-         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile)) {
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile, logger)) {
             var process = outer.Resolve<Process>();
-            using (var inner = new TestContainer(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, new ConsoleLogger(LogLevel.Debug))) {
+            using (var inner = new Container(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, logger)) {
                var controller = inner.Resolve<IProcessController>();
                controller.Execute();
             }
