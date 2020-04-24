@@ -1,7 +1,7 @@
 #region license
 // Transformalize
 // Configurable Extract, Transform, and Load
-// Copyright 2013-2017 Dale Newman
+// Copyright 2013-2020 Dale Newman
 //  
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,10 +20,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Autofac;
 using Transformalize.Configuration;
+using Transformalize.Containers.Autofac;
 using Transformalize.Context;
 using Transformalize.Contracts;
 using Transformalize.Impl;
-using Transformalize.Ioc.Autofac;
 using Transformalize.Nulls;
 using Transformalize.Providers.Ado;
 using Transformalize.Providers.SQLite;

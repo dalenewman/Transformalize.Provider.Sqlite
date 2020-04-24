@@ -68,8 +68,7 @@ namespace Transformalize.Providers.SQLite {
             _c.ConnectionString = new SQLiteConnectionStringBuilder {
                 DataSource = _c.File == string.Empty ? _c.Database : _c.File,
                 Version = 3,
-                FailIfMissing = false,
-                Password = _c.Password,
+                FailIfMissing = false
             }.ConnectionString;
 
             return _c.ConnectionString;
