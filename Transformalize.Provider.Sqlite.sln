@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{8FE1844F-26A4-47BE-9507-F0333D42FABE}"
 	ProjectSection(SolutionItems) = preProject
+		nuget\myget.bat = nuget\myget.bat
 		nuget\nuget.bat = nuget\nuget.bat
 		nuget\Transformalize.Provider.Sqlite.Autofac.nuspec = nuget\Transformalize.Provider.Sqlite.Autofac.nuspec
 		nuget\Transformalize.Provider.Sqlite.nuspec = nuget\Transformalize.Provider.Sqlite.nuspec
@@ -32,11 +33,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Provider.Autofac", "Provide
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Transformalize.Provider.Sqlite.Shared", "src\Transformalize.Provider.Sqlite.Shared\Transformalize.Provider.Sqlite.Shared.shproj", "{03FF5889-85AA-4AFC-8C60-1EF5975C9016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Provider.Sqlite.Standard.20", "src\Transformalize.Provider.Sqlite.Standard.20\Transformalize.Provider.Sqlite.Standard.20.csproj", "{D26E9329-ADBE-4F12-B9F2-81369BBD4797}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transformalize.Provider.Sqlite.Standard.20", "src\Transformalize.Provider.Sqlite.Standard.20\Transformalize.Provider.Sqlite.Standard.20.csproj", "{D26E9329-ADBE-4F12-B9F2-81369BBD4797}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Transformalize.Provider.Sqlite.Autofac.Shared", "src\Transformalize.Provider.Sqlite.Autofac.Shared\Transformalize.Provider.Sqlite.Autofac.Shared.shproj", "{5ACBD3F3-413B-486A-8783-B4B29824C6A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Provider.Sqlite.Autofac.Standard.20", "src\Transformalize.Provider.Sqlite.Autofac.Standard.20\Transformalize.Provider.Sqlite.Autofac.Standard.20.csproj", "{A8436CF3-AA77-47B3-91B5-044F8366C002}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transformalize.Provider.Sqlite.Autofac.Standard.20", "src\Transformalize.Provider.Sqlite.Autofac.Standard.20\Transformalize.Provider.Sqlite.Autofac.Standard.20.csproj", "{A8436CF3-AA77-47B3-91B5-044F8366C002}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{60A6003D-26CD-4F74-ADF2-6C39B703130B}"
 EndProject
@@ -44,7 +45,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Test.Integration.Shared", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Integration", "src\Test.Integration\Test.Integration.csproj", "{CB8025D3-B666-42E8-BAB0-D31F6F094536}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Integration.Core", "test\Test.Integration.Core\Test.Integration.Core.csproj", "{B2B17D90-17F3-4EEA-B934-D079EE2DB8B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Integration.Core", "test\Test.Integration.Core\Test.Integration.Core.csproj", "{B2B17D90-17F3-4EEA-B934-D079EE2DB8B8}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

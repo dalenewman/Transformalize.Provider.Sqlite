@@ -23,14 +23,15 @@ using Transformalize.Configuration;
 using Transformalize.Providers.Ado;
 
 namespace Transformalize.Providers.SQLite {
-    public class SqliteConnectionFactory : IConnectionFactory {
-        private static Dictionary<string, string> _types;
-        private readonly Connection _c;
+   public class SqliteConnectionFactory : IConnectionFactory {
+      private static Dictionary<string, string> _types;
+      private readonly Connection _c;
 
-        public AdoProvider AdoProvider { get; } = AdoProvider.SqLite;
-        public string Terminator { get; } = ";";
+      public AdoProvider AdoProvider { get; } = AdoProvider.SqLite;
+      public string Terminator { get; } = ";";
+      public bool SupportsLimit { get; } = true;
 
-        public Dictionary<string, string> Types => _types ?? (_types = new Dictionary<string, string> {
+      public Dictionary<string, string> Types => _types ?? (_types = new Dictionary<string, string> {
             {"int64", "BIGINT"},
             {"int", "INTEGER"},
             {"real", "REAL" },
@@ -53,53 +54,53 @@ namespace Transformalize.Providers.SQLite {
             {"guid", "TEXT"}
         });
 
-        public SqliteConnectionFactory(Connection connection) {
-            _c = connection;
-        }
+      public SqliteConnectionFactory(Connection connection) {
+         _c = connection;
+      }
 
-        public IDbConnection GetConnection(string appName = null) {
-            return new SQLiteConnection(GetConnectionString(appName));
-        }
+      public IDbConnection GetConnection(string appName = null) {
+         return new SQLiteConnection(GetConnectionString(appName));
+      }
 
-        public string GetConnectionString(string appName = null) {
-            if (_c.ConnectionString != string.Empty)
-                return _c.ConnectionString;
-
-            _c.ConnectionString = new SQLiteConnectionStringBuilder {
-                DataSource = _c.File == string.Empty ? _c.Database : _c.File,
-                Version = 3,
-                FailIfMissing = false
-            }.ConnectionString;
-
+      public string GetConnectionString(string appName = null) {
+         if (_c.ConnectionString != string.Empty)
             return _c.ConnectionString;
-        }
 
-        private static char L { get; } = '"';
-        private static char R { get; } = '"';
+         _c.ConnectionString = new SQLiteConnectionStringBuilder {
+            DataSource = _c.File == string.Empty ? _c.Database : _c.File,
+            Version = 3,
+            FailIfMissing = false
+         }.ConnectionString;
 
-        public string Enclose(string name) {
-            return L + name + R;
-        }
+         return _c.ConnectionString;
+      }
 
-        public string SqlDataType(Field f) {
+      private static char L { get; } = '"';
+      private static char R { get; } = '"';
 
-            var length = (new[] { "string", "char" }).Any(t => t == f.Type) ? $"({(f.Length)})" : string.Empty;
-            var dimensions = (new[] { "decimal" }).Any(s => s.Equals(f.Type)) ?
-                $"({f.Precision},{f.Scale})" :
-                string.Empty;
+      public string Enclose(string name) {
+         return L + name + R;
+      }
 
-            var sqlDataType = Types[f.Type];
+      public string SqlDataType(Field f) {
 
-            var type = string.Concat(sqlDataType, length, dimensions);
-            switch (type.ToLower()) {
-                case "nvarchar(max)":
-                case "varchar(max)":
-                    return "TEXT";
-                default:
-                    return type;
-            }
+         var length = (new[] { "string", "char" }).Any(t => t == f.Type) ? $"({(f.Length)})" : string.Empty;
+         var dimensions = (new[] { "decimal" }).Any(s => s.Equals(f.Type)) ?
+             $"({f.Precision},{f.Scale})" :
+             string.Empty;
 
-        }
+         var sqlDataType = Types[f.Type];
 
-    }
+         var type = string.Concat(sqlDataType, length, dimensions);
+         switch (type.ToLower()) {
+            case "nvarchar(max)":
+            case "varchar(max)":
+               return "TEXT";
+            default:
+               return type;
+         }
+
+      }
+
+   }
 }
