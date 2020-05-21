@@ -2,7 +2,7 @@
 <package>
    <metadata>
       <id>Transformalize.Provider.Sqlite.Autofac</id>
-      <version>0.7.6-beta</version>
+      <version>0.7.7-beta</version>
       <title>Transformalize Transform using Sqlite Autofac Module</title>
       <authors>Dale Newman</authors>
       <owners>Dale Newman</owners>
@@ -16,11 +16,11 @@
       <dependencies>
          <group targetFramework="net462">
             <dependency id="Transformalize.Container.Autofac" version="0.7.6-beta" />
-            <dependency id="Transformalize.Provider.Sqlite" version="0.7.6-beta" />
+            <dependency id="Transformalize.Provider.Sqlite" version="0.7.7-beta" />
          </group>
          <group targetFramework="netstandard2.0">
             <dependency id="Transformalize.Container.Autofac" version="0.7.6-beta" />
-            <dependency id="Transformalize.Provider.Sqlite" version="0.7.6-beta" />
+            <dependency id="Transformalize.Provider.Sqlite" version="0.7.7-beta" />
          </group>
       </dependencies>
    </metadata>
