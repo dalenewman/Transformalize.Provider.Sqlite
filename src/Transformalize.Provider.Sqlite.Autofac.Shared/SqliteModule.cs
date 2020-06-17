@@ -64,7 +64,7 @@ namespace Transformalize.Providers.Sqlite.Autofac {
          }
 
          // entitiy input
-         foreach (var entity in process.Entities.Where(e => process.Connections.First(c => c.Name == e.Connection).Provider == Sqlite)) {
+         foreach (var entity in process.Entities.Where(e => process.Connections.First(c => c.Name == e.Input).Provider == Sqlite)) {
 
             // INPUT READER
             builder.Register<IRead>(ctx => {
@@ -91,7 +91,7 @@ namespace Transformalize.Providers.Sqlite.Autofac {
          }
 
          // entity output
-         if (process.Output().Provider == Sqlite) {
+         if (process.GetOutputConnection().Provider == Sqlite) {
 
             var calc = process.ToCalculatedFieldsProcess();
 
@@ -206,14 +206,14 @@ namespace Transformalize.Providers.Sqlite.Autofac {
                      var rowCapacity = context.Entity.GetPrimaryKey().Count();
                      var rowFactory = new RowFactory(rowCapacity, false, true);
 
-                     var outputConnection = process.Output();
+                     var outputConnection = process.GetOutputConnection();
                      var ocf = ctx.ResolveNamed<IConnectionFactory>(outputConnection.Key);
                      return new AdoReader(context, entity.GetPrimaryKey(), ocf, rowFactory, ReadFrom.Output);
 
                   })).Named<IReadOutputKeysAndHashCodes>(entity.Key);
 
                   builder.Register((ctx) => {
-                     var outputConnection = process.Output();
+                     var outputConnection = process.GetOutputConnection();
                      var outputContext = ctx.ResolveNamed<OutputContext>(entity.Key);
 
                      var ocf = ctx.ResolveNamed<IConnectionFactory>(outputConnection.Key);
@@ -237,7 +237,7 @@ namespace Transformalize.Providers.Sqlite.Autofac {
                      handler.Register(TransformFactory.GetTransforms(ctx, context, primaryKey));
                      handler.Register(new StringTruncateTransfom(context, primaryKey));
 
-                     return new ParallelDeleteHandler(handler);
+                     return handler;
                   }).Named<IEntityDeleteHandler>(entity.Key);
                }
             }
