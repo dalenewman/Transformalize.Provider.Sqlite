@@ -1,17 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-   <PropertyGroup>
-      <TargetFramework>netstandard2.0</TargetFramework>
-      <RootNamespace>Transformalize.Providers.Sqlite</RootNamespace>
-      <AssemblyName>Transformalize.Provider.Sqlite</AssemblyName>
-      <Version>0.8.1-beta</Version>
-   </PropertyGroup>
-
-   <Import Project="..\Transformalize.Provider.Sqlite.Shared\Transformalize.Provider.Sqlite.Shared.projitems" Label="Shared" />
-
-   <ItemGroup>
-      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.112.1" />
-      <PackageReference Include="Transformalize.Provider.Ado" Version="0.8.1-beta" />
-   </ItemGroup>
-
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Transformalize.Providers.Sqlite</RootNamespace>
+    <AssemblyName>Transformalize.Provider.Sqlite</AssemblyName>
+    <Version>0.8.29-beta</Version>
+  </PropertyGroup>
+  <Import Project="..\Transformalize.Provider.Sqlite.Shared\Transformalize.Provider.Sqlite.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.112.1" />
+    <PackageReference Include="Transformalize.Provider.Ado" Version="0.8.31-beta" />
+  </ItemGroup>
 </Project>
