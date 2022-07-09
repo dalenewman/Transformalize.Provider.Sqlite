@@ -1,6 +1,6 @@
 ### Overview
 
-This is a `sqlite` provider to Transformalize using [System.Data.SQLite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core).  It ships with Transformalzie CLI.
+This is a `sqlite` provider to Transformalize using [System.Data.SQLite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core). You may have to add this package to your final application in order to get the right platform SQLite interop dll.
 
 ### Write Usage
 

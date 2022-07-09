@@ -5,7 +5,7 @@
    </parameters>
 
    <connections>
-      <add name="input" provider="sqlserver" server="localhost" database="NorthWind" />
+      <add name="input" provider="sqlserver" server="localhost" database="NorthWind" user="sa" password="*" />
       <add name="output" provider="sqlite" file="c:\temp\northwind.sqlite3" />
    </connections>
 

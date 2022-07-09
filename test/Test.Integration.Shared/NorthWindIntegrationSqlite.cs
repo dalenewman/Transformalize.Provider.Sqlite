@@ -39,9 +39,11 @@ namespace IntegrationTests {
          Name = "input",
          Provider = "sqlserver",
          Server = "localhost",
-         Database = "NorthWind"
+         Database = "NorthWind",
+         User = "sa",
+         Password = "DevDev1!"
       };
-
+      
       public Connection OutputConnection { get; set; } = new Connection {
          Name = "output",
          Provider = "sqlite",
