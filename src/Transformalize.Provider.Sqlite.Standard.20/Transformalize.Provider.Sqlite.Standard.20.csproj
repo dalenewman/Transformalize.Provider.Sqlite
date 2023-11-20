@@ -3,13 +3,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Transformalize.Providers.Sqlite</RootNamespace>
     <AssemblyName>Transformalize.Provider.Sqlite</AssemblyName>
-    <Version>0.10.1-beta</Version>
-    <FileVersion>0.10.1</FileVersion>
-    <AssemblyVersion>0.10.1</AssemblyVersion>
+    <Version>0.10.2-beta</Version>
+    <FileVersion>0.10.2</FileVersion>
+    <AssemblyVersion>0.10.2</AssemblyVersion>
   </PropertyGroup>
   <Import Project="..\Transformalize.Provider.Sqlite.Shared\Transformalize.Provider.Sqlite.Shared.projitems" Label="Shared" />
   <ItemGroup>
-    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.116" />
-    <PackageReference Include="Transformalize.Provider.Ado" Version="0.10.1-beta" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.118" />
+    <PackageReference Include="Transformalize.Provider.Ado" Version="0.10.2-beta" />
   </ItemGroup>
 </Project>

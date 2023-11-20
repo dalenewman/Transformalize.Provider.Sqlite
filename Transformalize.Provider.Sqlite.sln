@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C4563C88-9C80-4BD0-949E-AA64F111957E}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,10 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{8FE1844F
 		nuget\Transformalize.Provider.Sqlite.Autofac.nuspec = nuget\Transformalize.Provider.Sqlite.Autofac.nuspec
 		nuget\Transformalize.Provider.Sqlite.nuspec = nuget\Transformalize.Provider.Sqlite.nuspec
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Provider.Sqlite", "src\Transformalize.Provider.Sqlite\Transformalize.Provider.Sqlite.csproj", "{4ED1E259-756A-40B8-9800-F563B59E0206}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Provider.Sqlite.Autofac", "src\Transformalize.Provider.Sqlite.Autofac\Transformalize.Provider.Sqlite.Autofac.csproj", "{CD3477B9-14E5-4EA3-90B0-CA9299BCAE73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cfg", "cfg", "{B0BC2A9C-9618-4E64-8DC5-2B8599A13BB7}"
 	ProjectSection(SolutionItems) = preProject
@@ -43,35 +39,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{60A6003D-2
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Test.Integration.Shared", "test\Test.Integration.Shared\Test.Integration.Shared.shproj", "{B7156C40-30D0-44FD-8E24-C64BED3705F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Integration", "src\Test.Integration\Test.Integration.csproj", "{CB8025D3-B666-42E8-BAB0-D31F6F094536}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Integration.Core", "test\Test.Integration.Core\Test.Integration.Core.csproj", "{B2B17D90-17F3-4EEA-B934-D079EE2DB8B8}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\Transformalize.Provider.Sqlite.Shared\Transformalize.Provider.Sqlite.Shared.projitems*{03ff5889-85aa-4afc-8c60-1ef5975c9016}*SharedItemsImports = 13
-		src\Transformalize.Provider.Sqlite.Shared\Transformalize.Provider.Sqlite.Shared.projitems*{4ed1e259-756a-40b8-9800-f563b59e0206}*SharedItemsImports = 4
-		src\Transformalize.Provider.Sqlite.Autofac.Shared\Transformalize.Provider.Sqlite.Autofac.Shared.projitems*{5acbd3f3-413b-486a-8783-b4b29824c6a4}*SharedItemsImports = 13
-		src\Transformalize.Provider.Sqlite.Autofac.Shared\Transformalize.Provider.Sqlite.Autofac.Shared.projitems*{a8436cf3-aa77-47b3-91b5-044f8366c002}*SharedItemsImports = 5
-		test\Test.Integration.Shared\Test.Integration.Shared.projitems*{b2b17d90-17f3-4eea-b934-d079ee2db8b8}*SharedItemsImports = 5
-		test\Test.Integration.Shared\Test.Integration.Shared.projitems*{b7156c40-30d0-44fd-8e24-c64bed3705f8}*SharedItemsImports = 13
-		test\Test.Integration.Shared\Test.Integration.Shared.projitems*{cb8025d3-b666-42e8-bab0-d31f6f094536}*SharedItemsImports = 4
-		src\Transformalize.Provider.Sqlite.Autofac.Shared\Transformalize.Provider.Sqlite.Autofac.Shared.projitems*{cd3477b9-14e5-4ea3-90b0-ca9299bcae73}*SharedItemsImports = 4
-		src\Transformalize.Provider.Sqlite.Shared\Transformalize.Provider.Sqlite.Shared.projitems*{d26e9329-adbe-4f12-b9f2-81369bbd4797}*SharedItemsImports = 5
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4ED1E259-756A-40B8-9800-F563B59E0206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4ED1E259-756A-40B8-9800-F563B59E0206}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4ED1E259-756A-40B8-9800-F563B59E0206}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4ED1E259-756A-40B8-9800-F563B59E0206}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD3477B9-14E5-4EA3-90B0-CA9299BCAE73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD3477B9-14E5-4EA3-90B0-CA9299BCAE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD3477B9-14E5-4EA3-90B0-CA9299BCAE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD3477B9-14E5-4EA3-90B0-CA9299BCAE73}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D26E9329-ADBE-4F12-B9F2-81369BBD4797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D26E9329-ADBE-4F12-B9F2-81369BBD4797}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D26E9329-ADBE-4F12-B9F2-81369BBD4797}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -80,10 +55,6 @@ Global
 		{A8436CF3-AA77-47B3-91B5-044F8366C002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8436CF3-AA77-47B3-91B5-044F8366C002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8436CF3-AA77-47B3-91B5-044F8366C002}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CB8025D3-B666-42E8-BAB0-D31F6F094536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB8025D3-B666-42E8-BAB0-D31F6F094536}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB8025D3-B666-42E8-BAB0-D31F6F094536}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB8025D3-B666-42E8-BAB0-D31F6F094536}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2B17D90-17F3-4EEA-B934-D079EE2DB8B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2B17D90-17F3-4EEA-B934-D079EE2DB8B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2B17D90-17F3-4EEA-B934-D079EE2DB8B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -94,18 +65,23 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8FE1844F-26A4-47BE-9507-F0333D42FABE} = {C4563C88-9C80-4BD0-949E-AA64F111957E}
-		{4ED1E259-756A-40B8-9800-F563B59E0206} = {D9367722-76B4-4439-91AE-3CE107C6E578}
-		{CD3477B9-14E5-4EA3-90B0-CA9299BCAE73} = {AB5C2B8F-5011-4CD5-B786-183D1B46B49D}
 		{B0BC2A9C-9618-4E64-8DC5-2B8599A13BB7} = {C4563C88-9C80-4BD0-949E-AA64F111957E}
 		{03FF5889-85AA-4AFC-8C60-1EF5975C9016} = {D9367722-76B4-4439-91AE-3CE107C6E578}
 		{D26E9329-ADBE-4F12-B9F2-81369BBD4797} = {D9367722-76B4-4439-91AE-3CE107C6E578}
 		{5ACBD3F3-413B-486A-8783-B4B29824C6A4} = {AB5C2B8F-5011-4CD5-B786-183D1B46B49D}
 		{A8436CF3-AA77-47B3-91B5-044F8366C002} = {AB5C2B8F-5011-4CD5-B786-183D1B46B49D}
 		{B7156C40-30D0-44FD-8E24-C64BED3705F8} = {60A6003D-26CD-4F74-ADF2-6C39B703130B}
-		{CB8025D3-B666-42E8-BAB0-D31F6F094536} = {60A6003D-26CD-4F74-ADF2-6C39B703130B}
 		{B2B17D90-17F3-4EEA-B934-D079EE2DB8B8} = {60A6003D-26CD-4F74-ADF2-6C39B703130B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {960FC2FA-8CAD-47A3-8A4E-4173AE406E71}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\Transformalize.Provider.Sqlite.Shared\Transformalize.Provider.Sqlite.Shared.projitems*{03ff5889-85aa-4afc-8c60-1ef5975c9016}*SharedItemsImports = 13
+		src\Transformalize.Provider.Sqlite.Autofac.Shared\Transformalize.Provider.Sqlite.Autofac.Shared.projitems*{5acbd3f3-413b-486a-8783-b4b29824c6a4}*SharedItemsImports = 13
+		src\Transformalize.Provider.Sqlite.Autofac.Shared\Transformalize.Provider.Sqlite.Autofac.Shared.projitems*{a8436cf3-aa77-47b3-91b5-044f8366c002}*SharedItemsImports = 5
+		test\Test.Integration.Shared\Test.Integration.Shared.projitems*{b2b17d90-17f3-4eea-b934-d079ee2db8b8}*SharedItemsImports = 5
+		test\Test.Integration.Shared\Test.Integration.Shared.projitems*{b7156c40-30d0-44fd-8e24-c64bed3705f8}*SharedItemsImports = 13
+		src\Transformalize.Provider.Sqlite.Shared\Transformalize.Provider.Sqlite.Shared.projitems*{d26e9329-adbe-4f12-b9f2-81369bbd4797}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

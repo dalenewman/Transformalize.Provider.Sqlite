@@ -34,6 +34,7 @@ namespace IntegrationTests {
    [TestClass]
    public class NorthWindIntegrationSqlite {
 
+      // Set your credentials to your local sql server in the file and InputConnection
       public string TestFile { get; set; } = @"Files\NorthWindSqlServerToSqlite.xml";
       public Connection InputConnection { get; set; } = new Connection {
          Name = "input",
