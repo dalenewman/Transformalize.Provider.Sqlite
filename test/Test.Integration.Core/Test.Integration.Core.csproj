@@ -3,9 +3,9 @@
    <PropertyGroup>
       <TargetFramework>net8.0</TargetFramework>
       <IsPackable>false</IsPackable>
-      <Version>0.10.2-beta</Version>
-      <FileVersion>0.10.2</FileVersion>
-      <AssemblyVersion>0.10.2</AssemblyVersion>
+      <Version>0.10.3-beta</Version>
+      <FileVersion>0.10.3</FileVersion>
+      <AssemblyVersion>0.10.3</AssemblyVersion>
    </PropertyGroup>
 
    <ItemGroup>
@@ -16,8 +16,8 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.118" />
       <PackageReference Include="Transformalize.Container.Autofac" Version="0.10.12-beta" />
+      <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.0" />
       <PackageReference Include="Transformalize.Provider.Bogus.Autofac" Version="0.10.0-beta" />
       <PackageReference Include="Transformalize.Provider.Console.Autofac" Version="0.10.5-beta" />
       <PackageReference Include="Transformalize.Provider.SqlServer.Autofac" Version="0.10.9-beta" />

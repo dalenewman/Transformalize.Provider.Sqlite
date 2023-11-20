@@ -1,7 +1,7 @@
 ﻿#region license
 // Transformalize
 // Configurable Extract, Transform, and Load
-// Copyright 2013-2017 Dale Newman
+// Copyright 2013-2023 Dale Newman
 //  
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,9 +15,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 #endregion
+using Microsoft.Data.Sqlite;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SQLite;
 using System.Linq;
 using Transformalize.Configuration;
 using Transformalize.Providers.Ado;
@@ -59,17 +59,17 @@ namespace Transformalize.Providers.SQLite {
       }
 
       public IDbConnection GetConnection(string appName = null) {
-         return new SQLiteConnection(GetConnectionString(appName));
+         return new SqliteConnection(GetConnectionString(appName));
       }
 
       public string GetConnectionString(string appName = null) {
          if (_c.ConnectionString != string.Empty)
             return _c.ConnectionString;
 
-         _c.ConnectionString = new SQLiteConnectionStringBuilder {
+         _c.ConnectionString = new SqliteConnectionStringBuilder {
             DataSource = _c.File == string.Empty ? _c.Database : _c.File,
-            Version = 3,
-            FailIfMissing = false
+            DefaultTimeout = _c.Timeout,
+            Password = _c.Password
          }.ConnectionString;
 
          return _c.ConnectionString;

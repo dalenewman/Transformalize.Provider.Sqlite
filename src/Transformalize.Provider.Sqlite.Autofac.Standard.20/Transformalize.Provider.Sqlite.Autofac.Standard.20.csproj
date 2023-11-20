@@ -3,9 +3,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Transformalize.Providers.Sqlite.Autofac</RootNamespace>
     <AssemblyName>Transformalize.Provider.Sqlite.Autofac</AssemblyName>
-    <Version>0.10.2-beta</Version>
-    <FileVersion>0.10.2</FileVersion>
-    <AssemblyVersion>0.10.2</AssemblyVersion>
+    <Version>0.10.3-beta</Version>
+    <FileVersion>0.10.3</FileVersion>
+    <AssemblyVersion>0.10.3</AssemblyVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Transformalize.Container.Autofac" Version="0.10.12-beta" />

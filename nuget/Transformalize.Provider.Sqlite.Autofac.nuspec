@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Transformalize.Provider.Sqlite.Autofac</id>
-    <version>0.10.2-beta</version>
+    <version>0.10.3-beta</version>
     <title>Transformalize Transform using Sqlite Autofac Module</title>
     <authors>Dale Newman</authors>
     <owners>Dale Newman</owners>
@@ -10,13 +10,13 @@
     <projectUrl>https://github.com/dalenewman/Transformalize.Provider.Sqlite</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Transformalize Provider using Sqlite Autofac Module</description>
-    <releaseNotes>update dependencies</releaseNotes>
+    <releaseNotes>switch to microsoft implementation</releaseNotes>
     <copyright>Copyright © 2018-2023</copyright>
     <tags>etl,sqlite,transformalize</tags>
     <dependencies>
       <group targetFramework="netstandard2.0">
         <dependency id="Transformalize.Container.Autofac" version="0.10.12-beta" />
-        <dependency id="Transformalize.Provider.Sqlite" version="0.10.2-beta" />
+        <dependency id="Transformalize.Provider.Sqlite" version="0.10.3-beta" />
       </group>
     </dependencies>
   </metadata>
