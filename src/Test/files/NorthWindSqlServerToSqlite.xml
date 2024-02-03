@@ -2,10 +2,11 @@
 
    <parameters>
       <add name="Mode" value="default" />
+      <add name="Password" value="*" />
    </parameters>
 
    <connections>
-      <add name="input" provider="sqlserver" server="localhost" database="NorthWind" user="sa" password="DevDev1!" />
+      <add name="input" provider="sqlserver" server="localhost" database="NorthWind" user="sa" password="@[Password]" />
       <add name="output" provider="sqlite" file="c:\temp\northwind.sqlite3" />
    </connections>
 

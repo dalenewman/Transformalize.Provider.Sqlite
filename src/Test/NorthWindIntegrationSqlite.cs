@@ -35,6 +35,7 @@ namespace IntegrationTests {
    public class NorthWindIntegrationSqlite {
 
       // Set your credentials to your local sql server in the file and InputConnection
+      private const string Pw = "redacted";
       public string TestFile { get; set; } = @"Files\NorthWindSqlServerToSqlite.xml";
       public Connection InputConnection { get; set; } = new Connection {
          Name = "input",
@@ -42,7 +43,7 @@ namespace IntegrationTests {
          Server = "localhost",
          Database = "NorthWind",
          User = "sa",
-         Password = "DevDev1!"
+         Password = $"{Pw}"
       };
       
       public Connection OutputConnection { get; set; } = new Connection {
@@ -66,7 +67,7 @@ namespace IntegrationTests {
                 "));
          }
 
-         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile + "?Mode=init", logger)) {
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile + $"?Mode=init&Password={Pw}", logger)) {
             var process = outer.Resolve<Process>();
             using (var inner = new Container(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, logger)) {
                var controller = inner.Resolve<IProcessController>();
@@ -81,7 +82,7 @@ namespace IntegrationTests {
          }
 
          // FIRST DELTA, NO CHANGES
-         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile, logger)) {
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile + $"?Password={Pw}", logger)) {
             var process = outer.Resolve<Process>();
             using (var inner = new Container(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, logger)) {
                var controller = inner.Resolve<IProcessController>();
@@ -103,7 +104,7 @@ namespace IntegrationTests {
             Assert.AreEqual(1, cn.Execute(sql));
          }
 
-         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile, logger)) {
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile + $"?Password={Pw}", logger)) {
             var process = outer.Resolve<Process>();
             using (var inner = new Container(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, logger)) {
                var controller = inner.Resolve<IProcessController>();
@@ -125,7 +126,7 @@ namespace IntegrationTests {
             Assert.AreEqual(1, cn.Execute("UPDATE Orders SET CustomerID = 'VICTE', Freight = 20.11 WHERE OrderId = 10254;"));
          }
 
-         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile, logger)) {
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(TestFile + $"?Password={Pw}", logger)) {
             var process = outer.Resolve<Process>();
             using (var inner = new Container(new CSharpModule(), new SqlServerModule(), new SqliteModule()).CreateScope(process, logger)) {
                var controller = inner.Resolve<IProcessController>();

@@ -32,8 +32,11 @@ namespace IntegrationTests {
    public class Test {
 
       [TestMethod]
-      public void Write() {
-         const string xml = @"<add name='Bogus' mode='init'>
+      public void WriteThenRead() {
+
+         var logger = new ConsoleLogger(LogLevel.Debug);
+
+         const string writeXml = @"<add name='Bogus' mode='init'>
   <parameters>
     <add name='Size' type='int' value='1000' />
   </parameters>
@@ -53,9 +56,8 @@ namespace IntegrationTests {
     </add>
   </entities>
 </add>";
-         var logger = new ConsoleLogger(LogLevel.Debug);
 
-         using (var outer = new ConfigurationContainer().CreateScope(xml, logger)) {
+         using (var outer = new ConfigurationContainer().CreateScope(writeXml, logger)) {
             var process = outer.Resolve<Process>();
             using (var inner = new Container(new BogusModule(), new SqliteModule()).CreateScope(process, logger)) {
 
@@ -65,11 +67,8 @@ namespace IntegrationTests {
                Assert.AreEqual(process.Entities.First().Inserts, (uint)1000);
             }
          }
-      }
 
-      [TestMethod]
-      public void Read() {
-         const string xml = @"<add name='Bogus'>
+         const string readXml = @"<add name='Bogus'>
   <connections>
     <add name='input' provider='sqlite' file='c:\temp\junk.sqlite' />
     <add name='output' provider='internal' />
@@ -89,9 +88,8 @@ namespace IntegrationTests {
     </add>
   </entities>
 </add>";
-         var logger = new ConsoleLogger(LogLevel.Debug);
 
-         using (var outer = new ConfigurationContainer().CreateScope(xml, logger)) {
+         using (var outer = new ConfigurationContainer().CreateScope(readXml, logger)) {
             var process = outer.Resolve<Process>();
             using (var inner = new Container(new SqliteModule()).CreateScope(process, logger)) {
 
@@ -103,6 +101,8 @@ namespace IntegrationTests {
 
             }
          }
+
       }
+
    }
 }
