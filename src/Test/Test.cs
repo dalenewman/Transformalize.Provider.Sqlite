@@ -42,7 +42,7 @@ namespace IntegrationTests {
   </parameters>
   <connections>
     <add name='input' provider='bogus' seed='1' />
-    <add name='output' provider='sqlite' file='c:\temp\junk.sqlite' />
+    <add name='output' provider='sqlite' file='junk.sqlite' />
   </connections>
   <entities>
     <add name='Contact' size='@[Size]'>
@@ -70,7 +70,7 @@ namespace IntegrationTests {
 
          const string readXml = @"<add name='Bogus'>
   <connections>
-    <add name='input' provider='sqlite' file='c:\temp\junk.sqlite' />
+    <add name='input' provider='sqlite' file='junk.sqlite' />
     <add name='output' provider='internal' />
   </connections>
   <entities>

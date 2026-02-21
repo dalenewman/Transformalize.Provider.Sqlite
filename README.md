@@ -8,7 +8,7 @@ This is a `sqlite` provider to Transformalize using [System.Data.SQLite.Core](ht
 <add name='Bogus' mode='init'>
   <connections>
     <add name='input' provider='bogus' seed='1' />
-    <add name='output' provider='sqlite' file='c:\temp\junk.sqlite3' />
+    <add name='output' provider='sqlite' file='junk.sqlite3' />
   </connections>
   <entities>
     <add name='Contact' size='1000'>
@@ -31,7 +31,7 @@ This writes 1000 rows of bogus data to a Sqlite database.
 ```xml
 <add name='BogusRead' read-only='true' >
   <connections>
-    <add name='input' provider='sqlite' file='c:\temp\junk.sqlite3' />
+    <add name='input' provider='sqlite' file='junk.sqlite3' />
   </connections>
   <entities>
     <add name='BogusStar' page='1' size='10'>
