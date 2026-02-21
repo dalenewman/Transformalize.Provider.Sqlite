@@ -33,7 +33,7 @@ namespace IntegrationTests {
    [TestClass]
    public class NorthWindIntegrationSqlite {
 
-      public string TestFile { get; set; } = "files/NorthWindSqlServerToSqlite.xml";
+      public string TestFile { get; set; } = "files/NorthWindIntegrationSqlite.xml";
 
       public Connection InputConnection { get; set; } = new Connection {
          Name = "input",
@@ -71,8 +71,8 @@ namespace IntegrationTests {
 
          using (var cn = new SqliteConnectionFactory(OutputConnection).GetConnection()) {
             cn.Open();
-            Assert.AreEqual(609283, cn.ExecuteScalar<int>("SELECT COUNT(*) FROM NorthWindStar;"));
-            Assert.AreEqual(609283, cn.ExecuteScalar<int>("SELECT Inserts FROM NorthWindControl WHERE Entity = 'Order Details' AND BatchId = 1 LIMIT 1;"));
+            Assert.AreEqual(2155, cn.ExecuteScalar<int>("SELECT COUNT(*) FROM NorthWindStar;"));
+            Assert.AreEqual(2155, cn.ExecuteScalar<int>("SELECT Inserts FROM NorthWindControl WHERE Entity = 'Order Details' AND BatchId = 1 LIMIT 1;"));
          }
 
          // FIRST DELTA, NO CHANGES
@@ -86,7 +86,7 @@ namespace IntegrationTests {
 
          using (var cn = new SqliteConnectionFactory(OutputConnection).GetConnection()) {
             cn.Open();
-            Assert.AreEqual(609283, cn.ExecuteScalar<int>("SELECT COUNT(*) FROM NorthWindStar;"));
+            Assert.AreEqual(2155, cn.ExecuteScalar<int>("SELECT COUNT(*) FROM NorthWindStar;"));
             Assert.AreEqual(0, cn.ExecuteScalar<int>("SELECT Inserts+Updates+Deletes FROM NorthWindControl WHERE Entity = 'Order Details' AND BatchId = 9 LIMIT 1;"));
          }
 

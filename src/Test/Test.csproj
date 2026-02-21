@@ -9,12 +9,12 @@
    </PropertyGroup>
 
    <ItemGroup>
-     <None Remove="files\NorthWindSqlServerToSqlite.xml" />
+     <None Remove="files\NorthWindIntegrationSqlite.xml" />
      <None Remove="files\northwind-sqlite.db" />
    </ItemGroup>
 
    <ItemGroup>
-     <Content Include="files\NorthWindSqlServerToSqlite.xml">
+     <Content Include="files\NorthWindIntegrationSqlite.xml">
        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
      </Content>
      <Content Include="files\northwind-sqlite.db">
