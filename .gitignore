@@ -229,6 +229,11 @@ UpgradeLog*.htm
 *.ldf
 *.ndf
 
+# SQLite test output files
+src/Test/files/northwind-input.sqlite3
+src/Test/files/northwind-output.sqlite3
+src/Test/files/junk.sqlite
+
 # Business Intelligence projects
 *.rdl.data
 *.bim.layout
@@ -297,3 +302,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+.DS_Store

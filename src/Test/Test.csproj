@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
    <PropertyGroup>
       <TargetFramework>net8.0</TargetFramework>
@@ -10,10 +10,14 @@
 
    <ItemGroup>
      <None Remove="files\NorthWindSqlServerToSqlite.xml" />
+     <None Remove="files\northwind-sqlite.db" />
    </ItemGroup>
 
    <ItemGroup>
      <Content Include="files\NorthWindSqlServerToSqlite.xml">
+       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+     </Content>
+     <Content Include="files\northwind-sqlite.db">
        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
      </Content>
    </ItemGroup>
@@ -30,7 +34,6 @@
       <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.7" />
       <PackageReference Include="Transformalize.Provider.Bogus.Autofac" Version="0.11.1-beta" />
       <PackageReference Include="Transformalize.Provider.Console.Autofac" Version="0.11.1-beta" />
-      <PackageReference Include="Transformalize.Provider.SqlServer.Autofac" Version="0.11.1-beta" />
       <PackageReference Include="Transformalize.Transform.CSharp.Autofac" Version="0.11.1-beta" />
    </ItemGroup>
 
